@@ -16,6 +16,7 @@ private:
 	char* klaida;
 public:
 	InformacijaDokumento();
+	InformacijaEilute Gauti_Verte();
 	InformacijaDokumento(const char* failas);
 	~InformacijaDokumento();
 };

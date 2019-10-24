@@ -36,6 +36,15 @@
     <ClInclude Include="Rezultatas.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Monitorius.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Gija.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Besisukantis_Uzraktas.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -54,6 +63,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="InformacijaEilute.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Monitorius.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Gija.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Besisukantis_Uzraktas.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

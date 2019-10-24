@@ -1,0 +1,6 @@
+﻿1>------ Build started: Project: IFF-77_SadleviciusEdvinas_L1b, Configuration: Debug Win32 ------
+1>IFF-77_SadleviciusEdvinas_L1b.cpp
+1>c1xx : warning C4199: two-phase name lookup is not supported for C++/CLI, C++/CX, or OpenMP; use /Zc:twoPhase-
+1>IFF-77_SadleviciusEdvinas_L1b.vcxproj -> G:\GithubWorks\Universitetas\Lygiagretusis Prog\IFF-77_SadlevičiusEdvinas_L1b\L1b\IFF-77_SadleviciusEdvinas_L1b\Debug\IFF-77_SadleviciusEdvinas_L1b.exe
+1>Done building project "IFF-77_SadleviciusEdvinas_L1b.vcxproj".
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========

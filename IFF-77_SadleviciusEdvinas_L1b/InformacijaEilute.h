@@ -13,6 +13,7 @@ private:
 	double rSkaicius;
 	string hash;
 	string SukurtiHash();
+	string Pakeisti_Teksta_Didziosios_Bruksniai(string);
 public:
 	InformacijaEilute();
 	InformacijaEilute(string,int,double);

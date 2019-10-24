@@ -8,23 +8,22 @@ InformacijaDokumento::InformacijaDokumento()
 InformacijaDokumento::InformacijaDokumento(const char* failoVieta)
 {
 	InformacijaDokumento();
-	//cout << "Load result: " << rezultatas.description() << ", mesh name: " << doc.child("Projektai").child << endl;
 	if (dok.load_file((char*)failoVieta))
 	{
-		printf("Reading from file\n");
+		printf("Skaitoma is failo\n");
 		if (Saugoti_Informacija())
 		{
-			printf("File reading completed\n");
+			printf("Failo skaitymas baigtas\n");
 		}
 		else
 		{
-			printf("Could not read file.\nError: %s", klaida);
+			printf("Nepavyko skaityti failo.\nError: %s", klaida);
 		}
 
 	}
 	else
 	{
-		printf("Could not read file.\nError: %s", klaida);
+		printf("Nepavyko atidaryti failo.\nError: %s", klaida);
 	}
 }
 
@@ -38,8 +37,19 @@ bool InformacijaDokumento::Saugoti_Informacija()
 		likutis++;
 		InformacijaEilute naujas(projektas.attribute("pavadinimas").value(), atoi(projektas.attribute("parduota").value()), n);
 		informacija.push_back(naujas);
+		cout << setprecision(8) << naujas.Verte_Hash() << endl;
 	}
 	return true;
+}
+InformacijaEilute InformacijaDokumento::Gauti_Verte()
+{
+	if (likutis == 0)
+	{
+		return InformacijaEilute();
+	}
+	InformacijaEilute gauti = informacija[likutis-- - 1];
+	paimta_informacija.push_back(gauti);
+	return gauti;
 }
 InformacijaDokumento::~InformacijaDokumento()
 {

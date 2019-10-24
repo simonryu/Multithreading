@@ -25,7 +25,28 @@ string InformacijaEilute::SukurtiHash()
 	string naujasGautas = zodis + to_string(zSkaicius) + double_i_teksta;
 	string hashNew;
 	picosha2::hash256_hex_string(naujasGautas, hashNew);
-	return hashNew;
+	return Pakeisti_Teksta_Didziosios_Bruksniai(hashNew);
+}
+
+string InformacijaEilute::Pakeisti_Teksta_Didziosios_Bruksniai(string hash)
+{
+	string naujas = "";
+	for (int i = 0; i < hash.size(); i++)
+	{
+		if (i != 0 && i % 2 == 0)
+		{
+			naujas += '-';
+		}
+		if (isalpha(hash[i]))
+		{
+			naujas += (char)toupper(hash[i]);
+		}
+		else
+		{
+			naujas += hash[i];
+		}
+	}
+	return naujas;
 }
 InformacijaEilute::~InformacijaEilute()
 {
@@ -34,7 +55,7 @@ InformacijaEilute::~InformacijaEilute()
 int InformacijaEilute::Palyginti(InformacijaEilute* kitas)
 {
 
-	if (kitas == NULL || kitas->Verte_Hash()[0] < this->Verte_Hash()[0])
+	if (kitas->Verte_Hash().size() == 0 || kitas->Verte_Hash()[0] < this->Verte_Hash()[0])
 	{
 		return -1;
 	}

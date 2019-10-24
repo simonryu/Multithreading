@@ -17,18 +17,14 @@ Rezultatas::~Rezultatas()
 
 bool Rezultatas::Ideti_Ir_Rusiuoti(InformacijaEilute* info)
 {
-	cout << "Idedu ir rusiuoju" << endl;
 	return Perdeti_Elementa(info, 0);
 }
 
 bool Rezultatas::Perdeti_Elementa(InformacijaEilute* info, int kelintas)
 {
-	cout << "Ieskau vietos" << endl;
 	if (dydis == kelintas)
 	{
-		cout << "Bandau ikelt" << endl;
 		rezultatai[kelintas] = InformacijaEilute(*info);
-		cout << "Ikeliau" << endl;
 		dydis++;
 		return true;
 	}
@@ -68,9 +64,9 @@ int Rezultatas::Verte_Dydis()
 	return dydis;
 }
 
-void Rezultatas::Spausdinti_Rezultata()
+void Rezultatas::Spausdinti_Rezultata(const char* keliasIkiRez)
 {
-	ofstream rezultatas_failas("IsvestiesFailai/IFF77_SadleviciusE_L1_rez_1.txt");
+	ofstream rezultatas_failas(keliasIkiRez);
 	if (rezultatas_failas.is_open())
 	{
 		//const char* pagrLin = "|Pavadinimas         |Parduota           |Kaina               |HASH                                                                                                   |\n";

@@ -152,8 +152,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Besisukantis_Uzraktas.h" />
+    <ClInclude Include="Gija.h" />
     <ClInclude Include="InformacijaDokumento.h" />
     <ClInclude Include="InformacijaEilute.h" />
+    <ClInclude Include="Monitorius.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="picosha2.h" />
     <ClInclude Include="pugiconfig.hpp" />
@@ -161,9 +164,12 @@
     <ClInclude Include="Rezultatas.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Besisukantis_Uzraktas.cpp" />
+    <ClCompile Include="Gija.cpp" />
     <ClCompile Include="IFF-77_SadleviciusEdvinas_L1b.cpp" />
     <ClCompile Include="InformacijaDokumento.cpp" />
     <ClCompile Include="InformacijaEilute.cpp" />
+    <ClCompile Include="Monitorius.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

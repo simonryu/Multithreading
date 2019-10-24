@@ -8,9 +8,11 @@
 #include "Rezultatas.h"
 #include "InformacijaDokumento.h"
 #include "pugixml.hpp"
+#include "Monitorius.h"
+#include "Gija.h"
 #pragma warning(disable : 4996)
 using namespace std;
-
+int Gija::gijuSkaicius = 0;
 int Gauti_Giju_Kieki(int);
 void Hello(char*);
 
@@ -19,57 +21,27 @@ int main()
 	const int informacijosDydis = 25;
 	const int rusiavimas = 0;
 	const bool didejantis = true;
-	const char* ivesties_vieta = "IvestiesFailai/IFF77_SadleviciusE_L1_dat_1.xml";
-	const char* isviesties_vieta = "IsvestiesFailai/IFF77_SadleviciusE_L1_rez_1.txt";
-	int giju_skaicius = Gauti_Giju_Kieki(informacijosDydis);
+	const char* ivesties_vieta = "IvestiesFailai/IFF77_SadleviciusE_L1_dat_3.xml";
+	const char* isviesties_vieta = "IsvestiesFailai/IFF77_SadleviciusE_L1_rez_3.txt";
+	int giju_skaicius = Gauti_Giju_Kieki(informacijosDydis) + 1;
 	InformacijaDokumento dokumentas(ivesties_vieta);
 	Rezultatas rez(informacijosDydis, didejantis);
-	rez.Ideti_Ir_Rusiuoti(&InformacijaEilute("mew",5,12.5));
-	rez.Ideti_Ir_Rusiuoti(&InformacijaEilute("hello", 8, 999.77156));
-	rez.Spausdinti_Rezultata();
-	/*auto c = 99;
-	auto * lock = new omp_lock_t;
-	omp_init_lock(lock);
-	#pragma omp parallel num_threads(2) private(c)
+	Monitorius monitorius(informacijosDydis, &dokumentas, &rez, giju_skaicius);
+	#pragma omp parallel num_threads(giju_skaicius)
 	{
-		c = omp_get_thread_num();
-		omp_set_lock(lock);
-		printf_s("Hello\n");
-		omp_unset_lock(lock);
-	}
-	printf_s("Baigta\n");
-	omp_destroy_lock(lock);*/
-
-	/*OutputInformation output = new OutputInformation(informationSize, ascend);
-	NewMonitor monitor = new NewMonitor(informationSize, document, output);
-	List<Thread> threads = new List<Thread>();
-	OutputInformation output = new OutputInformation(informationSize, ascend);
-	NewMonitor monitor = new NewMonitor(informationSize, document, output);
-
-	//Sukuriamos naujos gijos
-	for (int i = 0; i < thread_number; i++)
-	{
-		threads.Add(new Thread(() = >
+		if (omp_get_thread_num() == 0)
 		{
-			CustomThread naujas = new CustomThread(monitor, sort);
-			while (naujas.Start());
-		}));
+			while (monitorius.Pagrindine_Deda_Informacija());
+		}
+		else
+		{
+			Gija naujas(&monitorius, rusiavimas);
+			while(naujas.Pradeti());
+		}
 	}
-	//Paleidžiamos gijos darbui
-	foreach(Thread thread in threads)
-	{
-		thread.Start();
-	}
-	//Pagrindine gija pradeda pildyti masyvą
-	while (monitor.MainIsAddingInformation());
 
-	//Pagrindine gija laukia, kol pabaigs visos jos sukurtos naujos gijos
-	foreach(Thread thread in threads)
-	{
-		thread.Join();
-	}
-	output.PrintInformation(pathOfOutput);
-	Console.WriteLine("Pagrindine gija: Baigiau darba ir sulaukiau visu vaiku");*/
+	rez.Spausdinti_Rezultata(isviesties_vieta);
+	printf("Pagrindine gija: Baigiau darba ir sulaukiau visu vaiku");
 	return 0;
 }
 

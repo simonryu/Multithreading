@@ -32,8 +32,7 @@ bool InformacijaDokumento::Saugoti_Informacija()
 	pugi::xml_node projektai = dok.child("Projektai");
 	for (pugi::xml_node projektas = projektai.child("Projektas"); projektas; projektas = projektas.next_sibling("Projektas"))
 	{
-		double n;
-		sscanf_s(projektas.attribute("kaina").value(), "%Lg", &n);
+		double n = stod(projektas.attribute("kaina").value());
 		likutis++;
 		InformacijaEilute naujas(projektas.attribute("pavadinimas").value(), atoi(projektas.attribute("parduota").value()), n);
 		informacija.push_back(naujas);

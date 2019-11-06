@@ -21,8 +21,8 @@ int main()
 	const int informacijosDydis = 25;
 	const int rusiavimas = 0;
 	const bool didejantis = true;
-	const char* ivesties_vieta = "IvestiesFailai/IFF77_SadleviciusE_L1_dat_3.xml";
-	const char* isviesties_vieta = "IsvestiesFailai/IFF77_SadleviciusE_L1_rez_3.txt";
+	const char* ivesties_vieta = "IvestiesFailai/IFF77_SadleviciusE_L1_dat_1.xml";
+	const char* isviesties_vieta = "IsvestiesFailai/IFF77_SadleviciusE_L1_rez_1.txt";
 	int giju_skaicius = Gauti_Giju_Kieki(informacijosDydis) + 1;
 	InformacijaDokumento dokumentas(ivesties_vieta);
 	Rezultatas rez(informacijosDydis, didejantis);

@@ -20,9 +20,7 @@ InformacijaEilute::InformacijaEilute(string zod, int z, double r)
 string InformacijaEilute::SukurtiHash()
 {
 	setlocale(LC_ALL, "en_US.utf8");
-	char double_i_teksta[20];
-	sprintf(double_i_teksta, "%.16g", rSkaicius);
-	string naujasGautas = zodis + to_string(zSkaicius) + double_i_teksta;
+	string naujasGautas = zodis + to_string(zSkaicius) + Pasalinti_nereikalingus_0(to_string(rSkaicius));
 	string hashNew;
 	picosha2::hash256_hex_string(naujasGautas, hashNew);
 	return Pakeisti_Teksta_Didziosios_Bruksniai(hashNew);
@@ -84,4 +82,23 @@ double InformacijaEilute::Verte_rSkaicius()
 string InformacijaEilute::Verte_Zodis()
 {
 	return zodis;
+};
+
+string InformacijaEilute::Pasalinti_nereikalingus_0(string zodis)
+{
+	string naujas;
+	string trumpalaikis = "";
+	for (int i = 0; i < zodis.size(); i++)
+	{
+		if (zodis[i] == (0 + '0'))
+		{
+			trumpalaikis += zodis[i];
+		}
+		else
+		{
+			naujas += trumpalaikis + zodis[i];
+			trumpalaikis = "";
+		}
+	}
+	return naujas;
 };

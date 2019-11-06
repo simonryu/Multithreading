@@ -14,6 +14,7 @@ private:
 	string hash;
 	string SukurtiHash();
 	string Pakeisti_Teksta_Didziosios_Bruksniai(string);
+	string Pasalinti_nereikalingus_0(string);
 public:
 	InformacijaEilute();
 	InformacijaEilute(string,int,double);

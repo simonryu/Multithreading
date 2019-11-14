@@ -1,6 +1,5 @@
 #include "InformacijaEilute.h"
 #include <stdio.h>
-#pragma warning(disable : 4996)
 InformacijaEilute::InformacijaEilute()
 {
 	zodis = "";
@@ -29,7 +28,7 @@ string InformacijaEilute::SukurtiHash()
 string InformacijaEilute::Pakeisti_Teksta_Didziosios_Bruksniai(string hash)
 {
 	string naujas = "";
-	for (int i = 0; i < hash.size(); i++)
+	for (unsigned int i = 0; i < hash.size(); i++)
 	{
 		if (i != 0 && i % 2 == 0)
 		{
@@ -88,7 +87,7 @@ string InformacijaEilute::Pasalinti_nereikalingus_0(string zodis)
 {
 	string naujas;
 	string trumpalaikis = "";
-	for (int i = 0; i < zodis.size(); i++)
+	for (unsigned int i = 0; i < zodis.size(); i++)
 	{
 		if (zodis[i] == (0 + '0'))
 		{

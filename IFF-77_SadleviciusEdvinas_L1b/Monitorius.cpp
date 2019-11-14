@@ -18,7 +18,7 @@ int Monitorius::RastiTusciaIndeksa()
 	{
 		return 0;
 	}
-	for (int i = 0; i < sizeof(informacija) / sizeof(InformacijaEilute); i++)
+	for (unsigned int i = 0; i < sizeof(informacija) / sizeof(InformacijaEilute); i++)
 	{
 		if (informacija[i].Verte_Zodis().size() == 0)
 		{

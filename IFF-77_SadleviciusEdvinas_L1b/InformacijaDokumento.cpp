@@ -1,6 +1,5 @@
 #include "InformacijaDokumento.h"
 #include <stdio.h>
-#pragma warning(disable : 4996)
 InformacijaDokumento::InformacijaDokumento()
 {
 	likutis = 0;
@@ -46,9 +45,11 @@ InformacijaEilute InformacijaDokumento::Gauti_Verte()
 	{
 		return InformacijaEilute();
 	}
-	InformacijaEilute gauti = informacija[likutis-- - 1];
-	paimta_informacija.push_back(gauti);
-	return gauti;
+	cout << &informacija[likutis-- - 1] << endl;
+	InformacijaEilute gauti = *&informacija[likutis-- - 1];
+	paimta_informacija.push_back(InformacijaEilute());
+	//return gauti;
+	return InformacijaEilute();
 }
 InformacijaDokumento::~InformacijaDokumento()
 {

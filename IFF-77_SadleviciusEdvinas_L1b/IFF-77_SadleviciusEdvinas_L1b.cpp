@@ -10,11 +10,9 @@
 #include "pugixml.hpp"
 #include "Monitorius.h"
 #include "Gija.h"
-#pragma warning(disable : 4996)
 using namespace std;
 int Gija::gijuSkaicius = 0;
 int Gauti_Giju_Kieki(int);
-void Hello(char*);
 
 int main()
 {
@@ -65,13 +63,8 @@ int Gauti_Giju_Kieki(int kiekis)
 	}
 	catch (const char* klaida)
 	{
-		printf(klaida);
+		printf("%s", klaida);
 		return Gauti_Giju_Kieki(kiekis);
 	}
-}
-
-void Hello(char* vardas)
-{
-	printf(vardas);
 }
 

@@ -1,5 +1,4 @@
 #include "Rezultatas.h"
-#pragma warning(disable : 4996)
 
 
 Rezultatas::Rezultatas(int dydis, bool didejantis)
@@ -69,10 +68,9 @@ void Rezultatas::Spausdinti_Rezultata(const char* keliasIkiRez)
 	ofstream rezultatas_failas(keliasIkiRez);
 	if (rezultatas_failas.is_open())
 	{
-		//const char* pagrLin = "|Pavadinimas         |Parduota           |Kaina               |HASH                                                                                                   |\n";
 		char pagrLin[200];
+		
 		sprintf(pagrLin,"|%-20s|%-20s|%-20s|%-100s|\n", "Pavadinimas", "Parduota", "Kaina", "HASH");
-
 		const char* linija = "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n";
 		rezultatas_failas << pagrLin << linija;
 		for(int i = 0;i < dydis;i++)
@@ -80,7 +78,6 @@ void Rezultatas::Spausdinti_Rezultata(const char* keliasIkiRez)
 
 			char rez[400];
 			sprintf(rez, "|%-20s|%-20d|%-20.16g|%-100s|\n", rezultatai[i].Verte_Zodis().c_str(), rezultatai[i].Verte_zSkaicius(), rezultatai[i].Verte_rSkaicius(), rezultatai[i].Verte_Hash().c_str());
-			//rezultatas_failas << "|" << rezultatai[i].Verte_Zodis() << "          |" << rezultatai[i].Verte_zSkaicius() << "            |" << rezultatai[i].Verte_rSkaicius() << "            |" << rezultatai[i].Verte_Hash() << "         |\n" << linija;
 			rezultatas_failas << rez << linija;
 		}
 		rezultatas_failas << "Viso: " << dydis;

@@ -1,0 +1,8 @@
+﻿  IFF-77_SadleviciusEdvinas_L1b.cpp
+c1xx : warning C4199: two-phase name lookup is not supported for C++/CLI, C++/CX, or OpenMP; use /Zc:twoPhase-
+g:\githubworks\universitetas\lygiagretusis prog\iff-77_sadlevičiusedvinas_l1b\l1b\iff-77_sadleviciusedvinas_l1b\iff-77_sadleviciusedvinas_l1b.cpp(24): error C2280: 'InformacijaDokumento::InformacijaDokumento(const InformacijaDokumento &)': attempting to reference a deleted function
+  g:\githubworks\universitetas\lygiagretusis prog\iff-77_sadlevičiusedvinas_l1b\l1b\iff-77_sadleviciusedvinas_l1b\informacijadokumento.h(21): note: compiler has generated 'InformacijaDokumento::InformacijaDokumento' here
+  g:\githubworks\universitetas\lygiagretusis prog\iff-77_sadlevičiusedvinas_l1b\l1b\iff-77_sadleviciusedvinas_l1b\informacijadokumento.h(21): note: 'InformacijaDokumento::InformacijaDokumento(const InformacijaDokumento &)': function was implicitly deleted because a base class invokes a deleted or inaccessible function 'pugi::xml_document::xml_document(const pugi::xml_document &)'
+  InformacijaDokumento.cpp
+c1xx : warning C4199: two-phase name lookup is not supported for C++/CLI, C++/CX, or OpenMP; use /Zc:twoPhase-
+  Generating Code...

@@ -1,0 +1,9 @@
+Besisukantis_Uzraktas.cpp
+Gija.cpp
+IFF-77_SadleviciusEdvinas_L1b.cpp
+InformacijaDokumento.cpp
+InformacijaEilute.cpp
+Monitorius.cpp
+Rezultatas.cpp
+pch.cpp
+pugixml.cpp

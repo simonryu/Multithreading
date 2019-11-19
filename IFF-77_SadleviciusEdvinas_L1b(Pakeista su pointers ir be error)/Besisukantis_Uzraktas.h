@@ -1,5 +1,7 @@
 #pragma once
 #include <atomic>
+#include <iostream>
+using namespace std;
 class Besisukantis_Uzraktas
 {
 private:

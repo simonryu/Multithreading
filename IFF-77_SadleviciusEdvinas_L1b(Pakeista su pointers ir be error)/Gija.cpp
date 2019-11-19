@@ -47,7 +47,14 @@ bool Gija::Reikalingas()
 }
 bool Gija::Pradeti()
 {
-	while (monitorius->Gauti_Informacija(informacija, id));
+	bool testi = true;
+	while (testi)
+	{
+		#pragma omp critical(gauti)
+		{
+			testi = monitorius->Gauti_Informacija(informacija, id);
+		}
+	};
 	if (informacija == NULL)
 	{
 		cout << "Gija " << id << ": Baigiau darba" << endl;
@@ -57,7 +64,10 @@ bool Gija::Pradeti()
 	{
 		if (Reikalingas())
 		{
-			monitorius->Deti_Informacija(informacija, id);
+			#pragma omp critical(deti)
+			{
+				monitorius->Deti_Informacija(informacija, id);
+			}
 			return true;
 		}
 		else

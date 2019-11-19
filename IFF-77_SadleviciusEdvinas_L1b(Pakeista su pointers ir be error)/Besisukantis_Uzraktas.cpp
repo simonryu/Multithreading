@@ -15,5 +15,8 @@ void Besisukantis_Uzraktas::atrakinti()
 }
 void Besisukantis_Uzraktas::uzrakinti()
 {
-	while (uzraktas.test_and_set());
+	while (uzraktas.test_and_set())
+	{
+		cout << "Sukasi" << endl;
+	}
 }

@@ -32,54 +32,53 @@ int Monitorius::RastiTusciaIndeksa()
 
 bool Monitorius::Pagrindine_Deda_Informacija()
 {
-	uzraktas_gauti.uzrakinti();
-	int indeksas;
-	if (pilnas)
-	{
-		cout << "Pagrindine gija: Pilnas masyvas" << endl;;
-	}
-	else if ((indeksas = RastiTusciaIndeksa()) < 0)
-	{
-		cout << "Pagrindine gija: Nera vietos masyve" << endl;
-		pilnas = true;
-	}
-	else
-	{
-		cout << "Pagrindine gija: idedu informacija" << endl;
-		InformacijaEilute* nauja_info = dokumentas->Gauti_Verte();
-		if (nauja_info == NULL)
+		int indeksas;
+		if (pilnas)
 		{
-			cout << "Pagrindine gija: Pasibaige, nes gautas tuscias konstruktorius" << endl;
-			baigta = true;
+			cout << "Pagrindine gija: Pilnas masyvas" << endl;;
+		}
+		else if ((indeksas = RastiTusciaIndeksa()) < 0)
+		{
+			cout << "Pagrindine gija: Nera vietos masyve" << endl;
+			pilnas = true;
 		}
 		else
 		{
-			if (tuscias)
+			cout << "Pagrindine gija: idedu informacija" << endl;
+			InformacijaEilute* nauja_info = dokumentas->Gauti_Verte();
+			if (nauja_info == NULL)
 			{
-				tuscias = false;
+				cout << "Pagrindine gija: Pasibaige, nes gautas tuscias konstruktorius" << endl;
+				baigta = true;
 			}
-			naudojama.push_back(indeksas);
-			informacija[indeksas] = nauja_info;
+			else
+			{
+				if (tuscias)
+				{
+					tuscias = false;
+				}
+				naudojama.push_back(indeksas);
+				informacija[indeksas] = nauja_info;
+			}
 		}
-	}
-	uzraktas_gauti.atrakinti();
-	if (baigta)
-	{
-		return false;
-	}
-	else
-	{
-		return true;
-	}
+		if (baigta)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
 }
 
 bool Monitorius::Deti_Informacija(InformacijaEilute*& naujaEilute, int id)
 {
-	uzraktas_deti.uzrakinti();
-	cout << "Gija " << id << ": Vykdau Deti_Informacija()" << endl;
-	rezultatas->Ideti_Ir_Rusiuoti(naujaEilute);
-	uzraktas_deti.atrakinti();
-	return true;
+	//#pragma omp critical(deti)
+	//{
+		cout << "Gija " << id << ": Vykdau Deti_Informacija()" << endl;
+		rezultatas->Ideti_Ir_Rusiuoti(naujaEilute);
+		return true;
+	//}
 }
 
 bool Monitorius::Gauti_Informacija(InformacijaEilute*& info, int id)
@@ -93,28 +92,28 @@ bool Monitorius::Gauti_Informacija(InformacijaEilute*& info, int id)
 	{
 		return true;
 	}
-	uzraktas_gauti.uzrakinti();
-	if (pilnas)
-	{
-		pilnas = false;
-	}
-	if (naudojama.size() == 0)
-	{
-		tuscias = true;
-		cout << "Gija " << id << ": Vykdau Gauti_Informacija(), bet tuscias masyvas" << endl;
-		uzraktas_gauti.atrakinti();
-		return true;
-	}
-	else
-	{
-		cout << "Gija " << id << ": Vykdau Gauti_Informacija()" << endl;;
-		int indeksas = naudojama.back();
-		naudojama.pop_back();
-		info = informacija[indeksas];
-		informacija[indeksas] = NULL;
-		uzraktas_gauti.atrakinti();
-		return false;
-	}
+	//#pragma omp critical(gauti)
+	//{
+		if (pilnas)
+		{
+			pilnas = false;
+		}
+		if (naudojama.size() == 0)
+		{
+			tuscias = true;
+			cout << "Gija " << id << ": Vykdau Gauti_Informacija(), bet tuscias masyvas" << endl;
+			return true;
+		}
+		else
+		{
+			cout << "Gija " << id << ": Vykdau Gauti_Informacija()" << endl;;
+			int indeksas = naudojama.back();
+			naudojama.pop_back();
+			info = informacija[indeksas];
+			informacija[indeksas] = NULL;
+			return false;
+		}
+	//}
 }
 
 Monitorius::~Monitorius()

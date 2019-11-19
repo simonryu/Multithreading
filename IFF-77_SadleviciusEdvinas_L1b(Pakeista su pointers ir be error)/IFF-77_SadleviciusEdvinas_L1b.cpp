@@ -16,6 +16,7 @@ int Gauti_Giju_Kieki(int);
 
 int main()
 {
+	bool testi = true;
 	const int informacijosDydis = 25;
 	const int rusiavimas = 0;
 	const bool didejantis = true;
@@ -29,7 +30,13 @@ int main()
 	{
 		if (omp_get_thread_num() == 0)
 		{
-			while (monitorius.Pagrindine_Deda_Informacija());
+			while (testi)
+			{
+				#pragma omp critical(gauti)
+				{
+					testi = monitorius.Pagrindine_Deda_Informacija();
+				}
+			};
 		}
 		else
 		{

@@ -1,0 +1,7 @@
+G:\GithubWorks\Universitetas\Lygiagretusis Prog\IFF-77_SadlevičiusEdvinas_L1a\IFF-77_SadleviciusEdvinas_L1a\IFF-77_SadlevičiusEdvinas_L1a\bin\Debug\IFF-77_SadlevičiusEdvinas_L1a.exe.config
+G:\GithubWorks\Universitetas\Lygiagretusis Prog\IFF-77_SadlevičiusEdvinas_L1a\IFF-77_SadleviciusEdvinas_L1a\IFF-77_SadlevičiusEdvinas_L1a\bin\Debug\IFF-77_SadlevičiusEdvinas_L1a.exe
+G:\GithubWorks\Universitetas\Lygiagretusis Prog\IFF-77_SadlevičiusEdvinas_L1a\IFF-77_SadleviciusEdvinas_L1a\IFF-77_SadlevičiusEdvinas_L1a\bin\Debug\IFF-77_SadlevičiusEdvinas_L1a.pdb
+G:\GithubWorks\Universitetas\Lygiagretusis Prog\IFF-77_SadlevičiusEdvinas_L1a\IFF-77_SadleviciusEdvinas_L1a\IFF-77_SadlevičiusEdvinas_L1a\obj\Debug\IFF-77_SadlevičiusEdvinas_L1a.csprojAssemblyReference.cache
+G:\GithubWorks\Universitetas\Lygiagretusis Prog\IFF-77_SadlevičiusEdvinas_L1a\IFF-77_SadleviciusEdvinas_L1a\IFF-77_SadlevičiusEdvinas_L1a\obj\Debug\IFF-77_SadlevičiusEdvinas_L1a.csproj.CoreCompileInputs.cache
+G:\GithubWorks\Universitetas\Lygiagretusis Prog\IFF-77_SadlevičiusEdvinas_L1a\IFF-77_SadleviciusEdvinas_L1a\IFF-77_SadlevičiusEdvinas_L1a\obj\Debug\IFF-77_SadlevičiusEdvinas_L1a.exe
+G:\GithubWorks\Universitetas\Lygiagretusis Prog\IFF-77_SadlevičiusEdvinas_L1a\IFF-77_SadleviciusEdvinas_L1a\IFF-77_SadlevičiusEdvinas_L1a\obj\Debug\IFF-77_SadlevičiusEdvinas_L1a.pdb
